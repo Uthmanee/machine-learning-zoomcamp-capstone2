@@ -26,4 +26,28 @@ path = kagglehub.dataset_download("paultimothymooney/chest-xray-pneumonia")
 print(f"Dataset downloaded to: {path}")
 ```
 
+## Installation & Setup
+**1. Clone this repository:**
+```
+git clone https://github.com/Uthmanee/machine-learning-zoomcamp-capstone2.git
+```
+**2. Install Pipenv (if not already installed)**
+```
+    pip install pipenv
+```
 
+## Run locally (without docker)
+**1. Install all dependencies/packages mentioned in the **Pipfile** within the new virtual environment being created.**
+```
+pipenv install
+```
+**2 Start the virtual environment by running the command below in the root directory.**
+```
+pipenv shell
+```
+**3. Run the inference scipt to make a prediction**
+```
+# Make a prediction
+python inference.py
+```
+To use the model as a locally deployed web service build and run the docker image. See docker usage section below.
