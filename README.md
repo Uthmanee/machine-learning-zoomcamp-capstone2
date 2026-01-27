@@ -6,6 +6,13 @@ Pneumonia is a common and potentially life-threatening respiratory infection tha
 
 ## Overview
 
+This project focuses on building a pneumonia classification model using chest X-ray images. **Exploratory data analysis (EDA)** was first conducted to verify the total number of images, analyze the distribution across the two classes **(Pneumonia and Normal)**, and identify **class imbalance** within the dataset.
+
+An initial prediction was performed using a **pre-trained CNN** to assess baseline performance, which demonstrated that the model did not directly generalize well to the target use case. **Transfer learning** was then applied to adapt the pre-trained network to the dataset, and model performance was evaluated using both **accuracy and ROC-AUC**, with ROC-AUC included to account for class imbalance.
+
+**Hyperparameter tuning** was carried out for the **learning rate**, where multiple values were tested. Based on training and validation performance trends, a learning rate of 0.001 was selected as the optimal value.
+
+The final trained model was saved as a .pth file and used for inference. Additionally, the model was exported to **ONNX** format. The ONNX model was packaged with an inference script into a **Docker container** and deployed locally as a **web API** using an AWS Lambda container image.
 
 ## Dataset
 The data used for training the model is from [kaggle](https://www.kaggle.com/models/huzaifa10/pneumonia-prediction-model-using-vgg16?select=pneumonia_prediction.h5)
