@@ -51,3 +51,21 @@ pipenv shell
 python inference.py
 ```
 To use the model as a locally deployed web service build and run the docker image. See docker usage section below.
+## Docker Usage
+**1. Build the Docker Image:**
+
+Use the following command to build the Docker image
+```
+docker build -t pneumonia-model-lambda-onnx .
+```
+**2. Run the Docker Container**
+
+Start the container using
+```
+docker run -it --rm -p 8080:8080 pneumonia-model-lambda-onnx
+```
+**3. Run the test script to make a prediction**
+```
+# Make a prediction
+python test.py
+```
