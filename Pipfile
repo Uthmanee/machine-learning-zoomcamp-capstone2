@@ -4,9 +4,17 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+numpy = "*"
+matplotlib = "*"
 torch = "*"
 torchvision = "*"
 torchaudio = "*"
+ipykernel = "*"
+onnxruntime-gpu = "*"
+keras-image-helper = "*"
+scikit-learn = "*"
+onnxscript = "*"
+requests = "*"
 
 [dev-packages]
 
