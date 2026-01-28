@@ -45,23 +45,17 @@ def predict(url):
     X = preprocessor.from_url(url)
     result = session.run([output_name], {input_name: X})
 
-    float_predictions = result[0][0].tolist()    # Comment this line to test the code below
-    return dict(zip(classes, float_predictions)) # Comment this line to test the code below
+    scores = result[0][0].tolist()
+    predictions = dict(zip(classes, scores))
 
-    # scores = result[0][0].tolist()
-    # predictions = dict(zip(classes, scores))
+    # Get predicted class
+    pred_idx = int(np.argmax(scores))
+    predicted_class = classes[pred_idx]
 
-    # # Get predicted class
-    # pred_idx = int(np.argmax(scores))
-    # predicted_class = classes[pred_idx]
-
-    # print("Scores:", predictions)
-    # print("Prediction:", predicted_class)
-
-    # return {
-    #     "scores": predictions,
-    #     "prediction": predicted_class
-    # }
+    return {
+        "scores": predictions,
+        "prediction": predicted_class
+    }
 
 
 def lambda_handler(event, context):
